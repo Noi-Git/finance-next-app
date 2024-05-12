@@ -1,13 +1,20 @@
 export const loginContainer =
-  'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full text-green-700 '
+  'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full text-green-700'
 
 export const loginCard =
-  'flex flex-col items-center justify-center self-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-8 w-full'
+  'flex flex-col items-center justify-center self-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-8 w-full lg-96 bg-green-100  lg:w-full'
 
-export const loginTitle = 'text-2xl font-semibold uppercase py-6'
+export const loginTitle = 'text-2xl font-semibold uppercase pt-2 py-6'
+
+export const loginFormWrap =
+  'lg:w-96 lg:flex lg:flex-row lg:justify-center lg:gap-x-12'
+
 export const loginForm = 'flex flex-col relative p-1 w-full'
-export const loginFormField = 'flex flex-row items-center justify-center py-2'
-export const loginLabel = 'w-35 pr-2'
+
+export const loginFormField =
+  'flex flex-row items-center justify-center py-2 lg:w-96'
+
+export const loginLabel = 'w-35 pr-2 lg:px-4'
 export const loginInput = 'p-1.5 w-full'
 export const loginFooter = 'text-base py-6'
 export const loginFooterSpan = 'text-base font-semibold pl-2'
