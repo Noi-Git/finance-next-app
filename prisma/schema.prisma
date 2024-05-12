@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model IncomeBudget {
+  ib_id     String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  ib_name   String
+  ib_amount Decimal
+  slug      String   @unique
+  i_type    Income[]
+}
+
+model Income {
+  i_id      String       @id @default(cuid())
+  createdAt DateTime     @default(now())
+  i_name    String
+  i_amount  Decimal
+  i_type    IncomeBudget @relation(fields: [iSlug], references: [slug])
+  iSlug     String
+}
+
+model ExpenseBudget {
+  eb_id     String    @id @default(cuid())
+  createdAt DateTime  @default(now())
+  eb_name   String
+  eb_amount Decimal
+  slug      String    @unique
+  e_type    Expense[]
+}
+
+model Expense {
+  e_id      String        @id @default(cuid())
+  createdAt DateTime      @default(now())
+  e_name    String
+  e_amount  Decimal
+  e_type    ExpenseBudget @relation(fields: [eSlug], references: [slug])
+  eSlug     String
+}
