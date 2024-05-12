@@ -7,7 +7,7 @@ import {
   cardLabel,
   cardTitle,
   cardTypeTitle,
-} from '../../styles/form'
+} from '../../styles/form-style'
 
 const TypeIncome = () => {
   return (

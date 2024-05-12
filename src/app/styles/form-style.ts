@@ -12,6 +12,5 @@ export const cardTitle =
   'text-lg font-semibold flex text-center pb-2 justify-center w-full'
 
 export const cardForm = ' relative p-1 w-full'
-
 export const cardLabel = 'pr-4'
 export const cardInput = 'relative w-full p-1.5'
