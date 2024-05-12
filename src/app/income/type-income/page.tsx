@@ -1,19 +1,22 @@
 import React from 'react'
 import {
   budgetCard,
+  budgetContainer,
   cardForm,
   cardInput,
   cardLabel,
   cardTitle,
+  cardTypeTitle,
 } from '../../styles/form'
 
 const TypeIncome = () => {
   return (
     <>
       {' '}
-      <div className=' bg-gray-100 text-green-700 flex items-center justify-center h-[calc(88vh)]'>
+      <div className={budgetContainer}>
         <div className={budgetCard}>
-          <h2 className={cardTitle}>Income type & budget</h2>
+          <h2 className={cardTypeTitle}>Income</h2>
+          <h3 className={cardTitle}>Type & Goal</h3>
 
           <form method='POST' className={cardForm}>
             <div>
