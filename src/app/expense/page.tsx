@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Expense = () => {
-  return <div>Expense</div>
+const ExpenseDashboard = () => {
+  return <div>ExpenseDashboard</div>
 }
 
-export default Expense
+export default ExpenseDashboard

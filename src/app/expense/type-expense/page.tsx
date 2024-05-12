@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TypeIncome = () => {
-  return <div>TypeIncome</div>
+const TypeExpense = () => {
+  return <div>TypeExpense</div>
 }
 
-export default TypeIncome
+export default TypeExpense
