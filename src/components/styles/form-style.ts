@@ -1,9 +1,8 @@
 export const budgetContainer =
-  'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full text-green-700'
-// ' bg-gray-100 text-green-700 flex justify-center items-center h-[calc(100vh-5.5rem] w-[calc(100vw] max-w-64'
+  'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full text-sky-700'
 
 export const budgetCard =
-  'flex flex-col items-center justify-center self-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-8 w-full lg-96 bg-green-100  md:w-full'
+  'flex flex-col items-center justify-center self-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 m-8 w-full lg-96 bg-sky-100  md:w-full'
 
 export const cardTypeTitle =
   'text-lg font-semibold uppercase flex text-center justify-center w-full'
