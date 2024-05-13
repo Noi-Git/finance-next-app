@@ -15,7 +15,10 @@ export const loginFormField =
   'flex flex-row items-center justify-center py-2 md:w-96 '
 
 export const loginLabel = 'w-35 pr-2 lg:px-4 md:w-30'
+
 export const loginInput =
   'p-1.5 w-full border bg-white border-sky-500 rounded-lg shadow hover:bg-white hover:border-sky-00 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 md:w-64'
-export const loginFooter = 'text-sky-700 text-base py-6'
-export const loginFooterSpan = 'text-base font-semibold pl-2'
+
+export const loginFooter = 'text-lg text-sky-700 text-base py-6'
+
+export const loginFooterSpan = 'text-xl font-semibold pl-2 text-amber-600'
