@@ -4,6 +4,8 @@ import { homeContainer } from '../components/styles/home-style'
 import HomePage from '@//components/home/HomePage'
 import IncomeItem from '../components/income/IncomeItem'
 import IncomeType from '../components/income/IncomeType'
+import IncomeDetail from '@/components/income/IncomeDetail'
+import IncomeTable from '@/components/income/IncomeTable'
 export default function Home() {
   return (
     <>
@@ -12,6 +14,8 @@ export default function Home() {
         {/* <HomePage /> */}
         <IncomeType />
         <IncomeItem />
+        <IncomeDetail />
+        <IncomeTable />
       </main>
     </>
   )

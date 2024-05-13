@@ -1,5 +1,5 @@
 export const homeContainer =
-  'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full bg-gray-100 text-sky-700 '
+  'flex flex-col justify-center items-center h-[calc(100vh-3rem] w-full bg-white text-sky-700 '
 
 export const homeCard =
   'flex flex-col items-center justify-center self-center py-2 px-[calc(5vw)] bg-white w-[calc(100vw)] '
