@@ -2,7 +2,7 @@ export const budgetContainer =
   'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full text-sky-700'
 
 export const budgetCard =
-  'flex flex-col items-center justify-center self-center p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full lg-96 bg-sky-100  md:w-full'
+  'flex flex-col items-center justify-center self-center p-6 bg-gray-100 border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full lg-96 bg-sky-100  md:w-full'
 
 export const cardTypeTitle =
   'text-lg font-semibold uppercase flex text-center justify-center w-full'
@@ -20,7 +20,8 @@ export const cardFormField =
 
 export const cardLabel = 'w-20 pr-2 text-left md:w-30'
 
-export const cardInput = 'p-1.5 w-full md:w-64'
+export const cardInput =
+  'p-1.5 border bg-white border-sky-500 rounded-lg shadow hover:bg-sky-50 hover:border-sky-00 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 w-full md:w-64'
 
 export const itemFormWrap =
   'md:w-[calc(90vw)] md:flex md:flex-row md:justify-center md:gap-x-1'
@@ -34,6 +35,7 @@ export const itemFormField =
 export const itemLabel =
   'w-20 pr-2 text-left md:pr-1 md:w-full md:items-center md:justify-center'
 
-export const itemInput = 'p-1.5 w-full  md:w-full'
+export const itemInput =
+  'p-1.5 w-full border bg-white border-sky-500 rounded-lg shadow hover:bg-sky-50 hover:border-sky-00 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 md:w-full'
 
 export const itemSelect = 'p-1.5 w-full md:w-[calc(20vw)] md:w-64'
