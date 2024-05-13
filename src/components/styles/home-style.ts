@@ -9,9 +9,10 @@ export const homeTitle = 'text-2xl text-sky-700 font-bold uppercase py-6'
 export const homeSubTitle =
   'text-xl text-sky-700 text-center font-semibold pb-6'
 
-export const availableAmount = 'text-4xl font-bold mt-[calc(8vh)] text-sky-600'
+export const availableAmount =
+  'flex justify-center text-4xl font-bold mt-[calc(8vh)] text-sky-600'
 
-export const availableText = 'text-sky-600 mb-5 '
+export const availableText = 'flex justify-center text-sky-600 mb-5 pt-2 '
 
 export const pageButtonWrap = 'flex flex-row w-[calc(90vw)] h-[calc(100vh)]'
 
