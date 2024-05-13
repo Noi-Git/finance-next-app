@@ -20,6 +20,7 @@ const IncomeType = () => {
           <div className={budgetCard}>
             <h2 className={cardTypeTitle}>Income</h2>
             <h3 className={cardTitle}>Type & Goal</h3>
+
             <div className={cardFormWrap}>
               <form method='POST' className={cardForm}>
                 <div className={cardFormField}>

@@ -18,5 +18,22 @@ export const cardForm = 'flex flex-col relative py-1 w-full'
 export const cardFormField =
   'flex flex-row items-center justify-center py-2 md:w-96'
 
-export const cardLabel = 'w-20 pr-1 text-left md:w-30'
+export const cardLabel = 'w-20 pr-2 text-left md:w-30'
+
 export const cardInput = 'p-1.5 w-full md:w-64'
+
+export const itemFormWrap =
+  'md:w-[calc(90vw)] md:flex md:flex-row md:justify-center md:gap-x-1'
+
+export const itemForm =
+  'flex flex-col relative py-1 w-full md:w-[calc(25vw)] md:mx-auto'
+
+export const itemFormField =
+  'flex flex-row items-center justify-center py-2 md:w-[calc(25vw)] md:flex md:flex-col md:items-center md:justify-center'
+
+export const itemLabel =
+  'w-20 pr-2 text-left md:pr-1 md:w-full md:items-center md:justify-center'
+
+export const itemInput = 'p-1.5 w-full  md:w-full'
+
+export const itemSelect = 'p-1.5 w-full md:w-[calc(20vw)] md:w-64'
