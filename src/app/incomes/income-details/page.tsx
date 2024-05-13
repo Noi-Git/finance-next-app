@@ -1,6 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { cardDetails, cardDetailsWrapper } from '../styles/detail-style'
+// import { Link } from 'react-router-dom'
+import {
+  cardDetails,
+  cardDetailsWrapper,
+} from '@/components/styles/detail-style'
 
 const income = [
   { id: 1, name: 'salary' },
@@ -8,7 +11,7 @@ const income = [
   { id: 3, name: 'dog walking' },
 ]
 
-const IncomeDetail = () => {
+const IncomeDetails = () => {
   return (
     <>
       <h2>
@@ -61,4 +64,4 @@ const IncomeDetail = () => {
   )
 }
 
-export default IncomeDetail
+export default IncomeDetails

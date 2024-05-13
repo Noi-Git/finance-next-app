@@ -1,5 +1,5 @@
 import React from 'react'
-import { homeCard } from '../styles/home-style'
+import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
   budgetContainer,
@@ -10,7 +10,7 @@ import {
   cardLabel,
   cardTitle,
   cardTypeTitle,
-} from '../styles/form-style'
+} from '@/components/styles/form-style'
 
 const IncomeType = () => {
   return (

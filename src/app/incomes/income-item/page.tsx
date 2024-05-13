@@ -1,14 +1,8 @@
 import React from 'react'
-import { homeCard } from '../styles/home-style'
+import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
   budgetContainer,
-  cardForm,
-  cardFormField,
-  cardFormWrap,
-  cardInput,
-  cardLabel,
-  // cardSelect,
   cardTypeTitle,
   itemForm,
   itemFormField,
@@ -16,7 +10,7 @@ import {
   itemInput,
   itemLabel,
   itemSelect,
-} from '../styles/form-style'
+} from '@/components/styles/form-style'
 
 const incomeBudget = [
   { id: 1, name: 'salary' },

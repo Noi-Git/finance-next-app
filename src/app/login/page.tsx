@@ -18,7 +18,7 @@ import {
   loginLabel,
   loginTitle,
 } from '@/components/styles/login-style'
-import Home from '@/app/page'
+// import Home from '@/app/page'
 
 const Login = () => {
   const [user, setUser] = useState(false)
