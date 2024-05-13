@@ -1,4 +1,5 @@
 import React from 'react'
+import { homeCard, homeSubTitle, homeTitle } from '../styles/home-style'
 import {
   loginCard,
   loginContainer,
@@ -11,10 +12,8 @@ import {
   loginLabel,
   loginTitle,
 } from '../styles/login-style'
-import { homeCard, homeSubTitle, homeTitle } from '../styles/home-style'
 
 const Login = () => {
-  // const [user, setUser] = useState(false)
   return (
     <>
       {/* {!user ? () : (<h1>This is Home Page</h1>)} */}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { homeCard } from '../styles/home-style'
 import {
   budgetCard,
   budgetContainer,
@@ -9,10 +10,9 @@ import {
   cardLabel,
   cardTitle,
   cardTypeTitle,
-} from '../../styles/form-style'
-import { homeCard } from '@/app/styles/home-style'
+} from '../styles/form-style'
 
-const TypeIncome = () => {
+const IncomeType = () => {
   return (
     <>
       <div className={homeCard}>
@@ -63,4 +63,4 @@ const TypeIncome = () => {
   )
 }
 
-export default TypeIncome
+export default IncomeType
