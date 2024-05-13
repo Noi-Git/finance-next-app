@@ -20,4 +20,4 @@ export const pageButton =
   'flex flex-row justify-center items-center self-start text-2xl w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-sky-500 text-white'
 
 export const landingPageButton =
-  'flex flex-row justify-center items-center text-xl px-8 py-4 my-10 mx-auto border border-gray-200 rounded-lg bg-sky-500 text-white shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
+  'flex flex-row justify-center items-center text-xl font-semibold px-8 py-4 my-10 mx-auto border border-gray-200 rounded-lg bg-sky-600 text-white shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
