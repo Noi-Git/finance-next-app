@@ -4,9 +4,10 @@ export const homeContainer =
 export const homeCard =
   'flex flex-col items-center justify-center self-center py-2 px-[calc(5vw)] bg-white w-[calc(100vw)] '
 
-export const homeTitle = 'text-2xl font-bold uppercase py-6'
+export const homeTitle = 'text-2xl text-sky-700 font-bold uppercase py-6'
 
-export const homeSubTitle = 'text-xl text-center font-semibold pb-6'
+export const homeSubTitle =
+  'text-xl text-sky-700 text-center font-semibold pb-6'
 
 export const availableAmount = 'text-4xl font-bold mt-[calc(8vh)] text-sky-600'
 

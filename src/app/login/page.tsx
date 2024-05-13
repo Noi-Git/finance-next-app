@@ -1,5 +1,11 @@
+'use client'
+
 import React, { useState } from 'react'
-import { homeCard, homeSubTitle, homeTitle } from '../styles/home-style'
+import {
+  homeCard,
+  homeSubTitle,
+  homeTitle,
+} from '@/components/styles/home-style'
 import {
   loginCard,
   loginContainer,
@@ -11,7 +17,7 @@ import {
   loginInput,
   loginLabel,
   loginTitle,
-} from '../styles/login-style'
+} from '@/components/styles/login-style'
 import Home from '@/app/page'
 
 const Login = () => {
