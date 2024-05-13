@@ -1,6 +1,6 @@
 import Notification from '@/components/Notification'
 import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -23,7 +23,7 @@ export default function RootLayout({
         {/* <Notification /> */}
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )
