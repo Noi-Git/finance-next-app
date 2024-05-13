@@ -10,8 +10,8 @@ export default function Home() {
       <main className={homeContainer}>
         {/* <Login /> */}
         {/* <HomePage /> */}
+        <IncomeType />
         <IncomeItem />
-        {/* <IncomeType /> */}
       </main>
     </>
   )

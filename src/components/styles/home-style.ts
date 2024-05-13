@@ -2,7 +2,7 @@ export const homeContainer =
   'flex flex-col justify-center items-center h-[calc(100vh-5.5rem] w-full bg-gray-100 text-sky-700 '
 
 export const homeCard =
-  'flex flex-col items-center justify-center self-center p-6 bg-white w-[calc(100vw)] '
+  'flex flex-col items-center justify-center self-center py-2 px-[calc(5vw)] bg-white w-[calc(100vw)] '
 
 export const homeTitle = 'text-2xl font-bold uppercase py-6'
 
