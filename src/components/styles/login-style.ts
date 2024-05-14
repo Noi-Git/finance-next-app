@@ -22,3 +22,24 @@ export const loginInput =
 export const loginFooter = 'text-lg text-sky-500 text-base py-6'
 
 export const loginFooterSpan = 'text-xl font-semibold pl-2 text-amber-600'
+
+export const loginHomeContainer =
+  'p-4 h-[calc(100vh-3rem)] flex items-center justify-center'
+
+export const loginHomeCard =
+  'h-full shadow-2xl rounded-md flex flex-col md:flex-row md:h-[70%] md:w-full lg:w-[60%] 2xl:w-[50%]'
+
+export const loginHomeImage =
+  'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'
+
+export const loginHomeContents = 'p-10 flex flex-col gap-8 md:w-1/2'
+
+export const loginButtonGoogle =
+  'flex align-center gap-4 p-4 ring-1 ring-orange-400 bg-yellow-100 rounded-md h-20'
+
+export const loginButtonFacebook =
+  'flex align-center gap-4 p-4 ring-1 ring-blue-400 bg-blue-100 rounded-md h-20'
+
+export const loginButtonTextGoogle = 'flex align-center pt-2 font-bold'
+
+export const loginButtonTextFacebook = 'flex align-center pt-2 font-bold'

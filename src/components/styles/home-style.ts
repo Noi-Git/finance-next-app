@@ -4,7 +4,8 @@ export const homeContainer =
 export const homeCard =
   'flex flex-col items-center justify-center self-center py-2 px-[calc(5vw)] bg-white w-[calc(100vw)] '
 
-export const homeTitle = 'text-2xl text-sky-700 font-bold uppercase py-6'
+export const homeTitle =
+  'text-2xl text-sky-700 font-bold text-center uppercase py-2'
 
 export const homeSubTitle =
   'text-xl text-sky-700 text-center font-semibold pb-6'
