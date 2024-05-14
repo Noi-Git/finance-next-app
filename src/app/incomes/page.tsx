@@ -1,13 +1,16 @@
 import React from 'react'
+import IncomeType from './income-type/page'
+import IncomeItem from './income-item/page'
+import IncomeDetails from './income-details/page'
+import IncomeTable from './income-table/page'
 
 const Incomes = () => {
   return (
     <>
-      <p>income type</p>
-      <p>income item</p>
-      <p>income details</p>
-      <p>income details -- single page --id--</p>
-      <p>income table</p>
+      <IncomeType />
+      <IncomeItem />
+      <IncomeDetails />
+      <IncomeTable />
     </>
   )
 }
