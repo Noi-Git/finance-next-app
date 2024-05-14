@@ -1,7 +1,13 @@
 import React from 'react'
+import IncomeTable from '../../income-table/page'
 
 const IncomeDetailSingle = () => {
-  return <div>Income Detail Single</div>
+  return (
+    <>
+      Income Detail Single
+      <IncomeTable />
+    </>
+  )
 }
 
 export default IncomeDetailSingle
