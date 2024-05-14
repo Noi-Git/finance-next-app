@@ -3,6 +3,7 @@
 import React from 'react'
 import {
   tableBody,
+  tableCard,
   tableHead,
   tableRow,
   tableWrapper,
@@ -16,7 +17,6 @@ import {
   thType,
 } from '@/components/styles/table-style'
 import { featuredIncomeBudget, featureIncomeItem } from '@/data'
-import { homeCard } from '@/components/styles/home-style'
 
 const IncomeTable = () => {
   const IncomeBudget = featuredIncomeBudget
@@ -24,7 +24,7 @@ const IncomeTable = () => {
 
   return (
     <>
-      <div className={homeCard}>
+      <div className={tableCard}>
         <div>
           <table className={tableWrapper}>
             <thead>

@@ -1,3 +1,6 @@
+export const detailsContainer =
+  'flex flex-col justify-center items-center h-[calc(100vh] w-full text-sky-700 bg-amber-100 border-b-2 border-b-sky-600'
+
 export const cardDetailsWrapper =
   'flex flex-row flex-wrap gap-5 w-full justify-center'
 

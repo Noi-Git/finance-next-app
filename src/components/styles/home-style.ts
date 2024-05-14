@@ -1,8 +1,8 @@
 export const homeContainer =
-  'flex flex-col justify-center items-center h-[calc(100vh-3rem] w-full bg-white text-sky-700 '
+  'flex flex-col justify-center items-center h-[calc(100vh-3rem] w-full bg-white text-sky-700'
 
 export const homeCard =
-  'flex flex-col items-center justify-center self-center py-2 px-[calc(5vw)] bg-white w-[calc(100vw)] '
+  'flex flex-col items-center justify-center self-center  px-[calc(5vw)] bg-white w-[calc(100vw)]'
 
 export const homeTitle =
   'text-2xl text-sky-700 font-bold text-center uppercase py-2'
@@ -42,5 +42,18 @@ export const pageExpenseButton =
 export const pageSavingButton =
   'flex flex-row justify-center items-center self-start  text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-amber-600 text-white'
 
+export const landingContents =
+  'p-4 h-[calc(100vh-3rem)] flex items-center justify-center'
+
+export const landingCard =
+  'h-full shadow-2xl rounded-md flex flex-col md:flex-row md:h-[70%] md:w-full lg:w-[60%] 2xl:w-[50%]'
+
+export const landingCardImage =
+  'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'
+
+export const landingCardContents =
+  'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'
+
 export const landingPageButton =
-  'flex flex-row justify-center items-center text-xl font-semibold px-8 py-4 my-10 mx-auto border border-gray-200 rounded-lg bg-sky-600 text-white shadow hover:bg-gray-50 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
+  'flex justify-center align-center self-center items-center text-2xl font-semibold px-[5rem] py-[1.5rem]  mx-auto border border-amber-400 rounded-lg bg-amber-100 text-amber-800 shadow hover:bg-amber-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
+// 'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'

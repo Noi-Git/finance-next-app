@@ -35,10 +35,10 @@ export const loginHomeImage =
 export const loginHomeContents = 'p-10 flex flex-col gap-8 md:w-1/2'
 
 export const loginButtonGoogle =
-  'flex align-center gap-4 p-4 ring-1 ring-orange-400 bg-yellow-100 rounded-md h-20'
+  'flex align-center gap-4 p-4 ring-1 ring-orange-400 bg-yellow-200 rounded-md h-20 hover:bg-yellow-300'
 
 export const loginButtonFacebook =
-  'flex align-center gap-4 p-4 ring-1 ring-blue-400 bg-blue-100 rounded-md h-20'
+  'flex align-center gap-4 p-4 ring-1 ring-blue-400 bg-blue-200 rounded-md h-20 hover:bg-blue-300'
 
 export const loginButtonTextGoogle = 'flex align-center pt-2 font-bold'
 

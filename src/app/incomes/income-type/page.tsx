@@ -18,8 +18,8 @@ const IncomeType = () => {
       <div className={homeCard}>
         <div className={budgetContainer}>
           <div className={budgetCard}>
-            <h2 className={cardTypeTitle}>Income</h2>
-            <h3 className={cardTitle}>Type & Goal</h3>
+            <h2 className={cardTypeTitle}>Income: Type & Goal</h2>
+            {/* <span className={cardTitle}>Type & Goal</span> */}
 
             <div className={cardFormWrap}>
               <form method='POST' className={cardForm}>
