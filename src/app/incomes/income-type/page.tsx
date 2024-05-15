@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -14,13 +15,10 @@ import {
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
 import { getData } from '@/app/api/itype/route'
-
-// const noitest = getData().then((data) => {
-//   return data
-// })
+import { createBudget } from '@/utils/incomeHelper'
 
 const IncomeType = () => {
-  const [incomeBudgetType, setIncomeBudgetType] = useState(null)
+  const [incomeBudgetType, setIncomeBudgetType] = useState([])
 
   useEffect(() => {
     getData()
@@ -36,8 +34,21 @@ const IncomeType = () => {
     return <div>Loading...</div>
   }
 
-  const test = JSON.stringify(incomeBudgetType)
-  console.log('🚀 ~ IncomeType ~ test:', test)
+  const ibTypeData = incomeBudgetType
+  const { _action, ...values } = Object.fromEntries(ibTypeData)
+  console.log('🚀 ibTypeData:--', ibTypeData)
+
+  if (_action === 'createIncomeBudget') {
+    try {
+      createBudget({
+        ib_name: values.newBudget,
+        ib_amount: values.newBudgetAmount,
+      })
+      return toast.success('Budget created!')
+    } catch (error) {
+      throw new Error('There was a problem creating your budget.')
+    }
+  }
 
   return (
     <>

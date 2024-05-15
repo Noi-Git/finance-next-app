@@ -20,18 +20,12 @@ export const getData = async () => {
   })
     .then((response) => response.json())
     .then((ibudgets) => {
-      console.log(ibudgets)
+      // console.log(ibudgets)
       return ibudgets
     })
-  console.log(test)
+  // console.log(test)
   return test
 }
-
-//trnasform the promise data into reusable array of data
-// export const ibtypes = async () => {
-//   const ibtype = await ibudgetdata
-//   return ibtype
-// }
 
 // export const createBudget = ({ name, amount }) => {
 //   const newItem = {
