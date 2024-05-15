@@ -15,7 +15,7 @@ import {
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
 import { getData } from '@/app/api/itype/route'
-import { createBudget } from '@/utils/incomeHelper'
+// import { createIncomeBudget } from '@/utils/incomeHelper'
 
 const IncomeType = () => {
   const [incomeBudgetType, setIncomeBudgetType] = useState([])
@@ -39,15 +39,16 @@ const IncomeType = () => {
   console.log('🚀 ibTypeData:--', ibTypeData)
 
   if (_action === 'createIncomeBudget') {
-    try {
-      createBudget({
-        ib_name: values.newBudget,
-        ib_amount: values.newBudgetAmount,
-      })
-      return toast.success('Budget created!')
-    } catch (error) {
-      throw new Error('There was a problem creating your budget.')
-    }
+    //=== dispatch
+    // try {
+    //   createBudget({
+    //     ib_name: values.newBudget,
+    //     ib_amount: values.newBudgetAmount,
+    //   })
+    //   return toast.success('Budget created!')
+    // } catch (error) {
+    //   throw new Error('There was a problem creating your budget.')
+    // }
   }
 
   return (

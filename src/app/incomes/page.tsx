@@ -7,6 +7,7 @@ import IncomeTable from './income-table/page'
 const Incomes = () => {
   return (
     <>
+      {/* {ibTypeData} */}
       <IncomeType />
       <IncomeItem />
       <IncomeDetails />
