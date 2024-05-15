@@ -9,21 +9,13 @@ import {
 } from '@/components/styles/detail-style'
 import { featureIncomeItem } from '@/data'
 import { homeCard } from '@/components/styles/home-style'
-
-const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/itype', {
-    cache: 'no-store',
-  })
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch income type')
-  }
-  return await res.json()
-}
+// import { IncomeType } from '@/app/api/itype/route'
 
 const IncomeDetails = async () => {
-  const incomeType = await getData()
+  // const incomeType = await getData()
   // console.log('🚀 ~ :', incomeType)
+  // const ibudget = IncomeType()
+  // console.log('ibudget from route:--', ibudget)
 
   const incomeItem = featureIncomeItem
   // console.log('🚀 ~ IncomeDetails ~ incomeItem:', incomeItem)

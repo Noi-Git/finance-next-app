@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -11,21 +13,31 @@ import {
   cardTypeTitle,
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
+import { getData } from '@/app/api/itype/route'
 
-const getData = async () => {
-  const res = await fetch('http://localhost:3000/api/itype', {
-    cache: 'no-store',
-  })
+// const noitest = getData().then((data) => {
+//   return data
+// })
 
-  if (!res.ok) {
-    throw new Error('Failed')
+const IncomeType = () => {
+  const [incomeBudgetType, setIncomeBudgetType] = useState(null)
+
+  useEffect(() => {
+    getData()
+      .then((data) => {
+        setIncomeBudgetType(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching data', error)
+      })
+  }, [])
+
+  if (incomeBudgetType === null) {
+    return <div>Loading...</div>
   }
-  return res.json()
-}
 
-const IncomeType = async () => {
-  const incomeType = await getData()
-  // console.log('incomeType:', incomeType)
+  const test = JSON.stringify(incomeBudgetType)
+  console.log('🚀 ~ IncomeType ~ test:', test)
 
   return (
     <>

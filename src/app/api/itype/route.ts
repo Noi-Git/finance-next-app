@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export const GET = async () => {
   try {
-    const itype = await prisma.incomeItem.findMany()
+    const itype = await prisma.incomeBudget.findMany()
     return new NextResponse(JSON.stringify(itype), { status: 200 })
   } catch (err) {
     console.log('fetch income type error: --', err)
@@ -13,6 +13,25 @@ export const GET = async () => {
     )
   }
 }
+
+export const getData = async () => {
+  const test = await fetch('http://localhost:3000/api/itype', {
+    cache: 'no-store',
+  })
+    .then((response) => response.json())
+    .then((ibudgets) => {
+      console.log(ibudgets)
+      return ibudgets
+    })
+  console.log(test)
+  return test
+}
+
+//trnasform the promise data into reusable array of data
+// export const ibtypes = async () => {
+//   const ibtype = await ibudgetdata
+//   return ibtype
+// }
 
 // export const createBudget = ({ name, amount }) => {
 //   const newItem = {
