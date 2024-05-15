@@ -25,7 +25,7 @@ const getData = async () => {
 
 const IncomeType = async () => {
   const incomeType = await getData()
-  console.log('🚀 ~ IncomeType ~ incomeType:', incomeType)
+  // console.log('incomeType:', incomeType)
 
   return (
     <>
@@ -50,8 +50,8 @@ const IncomeType = async () => {
                     required
                   />
                 </div>
-              </form>
-              <form className={cardForm}>
+                {/* </form>
+              <form className={cardForm}> */}
                 <div className={cardFormField}>
                   <label className={cardLabel} htmlFor='newBudgetAmount'>
                     Amount

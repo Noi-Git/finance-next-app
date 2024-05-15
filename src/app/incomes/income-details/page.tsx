@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import React, { useState } from 'react'
 // import { Link } from 'react-router-dom'
@@ -10,8 +10,23 @@ import {
 import { featureIncomeItem } from '@/data'
 import { homeCard } from '@/components/styles/home-style'
 
-const IncomeDetails = () => {
+const getData = async () => {
+  const res = await fetch('http://localhost:3000/api/itype', {
+    cache: 'no-store',
+  })
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch income type')
+  }
+  return await res.json()
+}
+
+const IncomeDetails = async () => {
+  const incomeType = await getData()
+  // console.log('🚀 ~ :', incomeType)
+
   const incomeItem = featureIncomeItem
+  // console.log('🚀 ~ IncomeDetails ~ incomeItem:', incomeItem)
 
   return (
     <>
