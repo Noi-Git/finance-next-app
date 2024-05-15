@@ -12,7 +12,7 @@ import {
 import Image from 'next/image'
 
 const LandingPage = () => {
-  const user = false
+  const user = true
   return (
     <>
       <div className={landingContents}>

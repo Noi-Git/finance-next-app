@@ -34,13 +34,13 @@ export const pageSavingAmount =
   'flex flex-row justify-center align-center h-20 w-full gap-8 text-1xl md:text-2xl font-bold text-amber-600'
 
 export const pageIncomeButton =
-  'flex flex-row justify-center items-center self-start text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-green-700 text-white'
+  'flex flex-row justify-center items-center self-start text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-green-800 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-green-700 text-white'
 
 export const pageExpenseButton =
-  'flex flex-row justify-center items-center self-start text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-rose-600 text-white'
+  'flex flex-row justify-center items-center self-start text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-rose-700 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-rose-600 text-white'
 
 export const pageSavingButton =
-  'flex flex-row justify-center items-center self-start  text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-gray-50 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-amber-600 text-white'
+  'flex flex-row justify-center items-center self-start  text-2xl md:text-3xl font-bold w-[calc(25vw)] md:w-[calc(22vw)] h-[calc(15vh)] py-9 my-10 mx-auto border border-gray-200 rounded-lg shadow hover:bg-amber-700 dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700 md:w-[calc(18vw)] md:h-[calc(18vh)] bg-amber-600 text-white'
 
 export const landingContents =
   'p-4 h-[calc(100vh-3rem)] flex items-center justify-center'
