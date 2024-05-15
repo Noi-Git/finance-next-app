@@ -1,5 +1,4 @@
 import React from 'react'
-import { fetchIncome } from '@/utils/incomeHelper'
 import IncomeType from './income-type/page'
 import IncomeItem from './income-item/page'
 import IncomeDetails from './income-details/page'
