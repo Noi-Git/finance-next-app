@@ -1,5 +1,4 @@
 import React from 'react'
-import { toast } from 'react-toastify'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -13,7 +12,21 @@ import {
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
 
-const IncomeType = () => {
+const getData = async () => {
+  const res = await fetch('http://localhost:3000/api/itype', {
+    cache: 'no-store',
+  })
+
+  if (!res.ok) {
+    throw new Error('Failed')
+  }
+  return res.json()
+}
+
+const IncomeType = async () => {
+  const incomeType = await getData()
+  console.log('🚀 ~ IncomeType ~ incomeType:', incomeType)
+
   return (
     <>
       <div className={homeCard}>
@@ -37,8 +50,8 @@ const IncomeType = () => {
                     required
                   />
                 </div>
-                {/* </form>
-              <form className={cardForm}> */}
+              </form>
+              <form className={cardForm}>
                 <div className={cardFormField}>
                   <label className={cardLabel} htmlFor='newBudgetAmount'>
                     Amount
