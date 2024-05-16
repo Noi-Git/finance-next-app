@@ -18,6 +18,7 @@ import {
 
 const Login = () => {
   const { data, status } = useSession()
+  // console.log('🚀 ~ Login ~ status:', status)
   const router = useRouter()
 
   if (status === 'loading') {
