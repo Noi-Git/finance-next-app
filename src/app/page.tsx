@@ -6,6 +6,7 @@ import {
 } from '@/components/styles/home-style'
 import Image from 'next/image'
 import UserLinks from '@/components/UserLinks'
+import Login from './login/page'
 
 const LandingPage = () => {
   return (
@@ -20,7 +21,8 @@ const LandingPage = () => {
               height={500}
             ></Image>
           </div>
-          <UserLinks />
+          <Login />
+          {/* <UserLinks /> */}
         </div>
       </div>
     </>

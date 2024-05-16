@@ -7,8 +7,8 @@ import { Inter } from 'next/font/google'
 import AuthProvider from '@/components/AuthProvider'
 import Navbar from '../components/Navbar'
 import QueryProvider from '@/components/QueryProvider'
-// import { ToastContainer } from 'react-toastify'
-// import 'react-toastify/dist/ReactToastify.css'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -30,11 +30,11 @@ export default function RootLayout({
             <div>
               <Navbar />
               {children}
-              {/* <ToastContainer
-              position='bottom-right'
-              theme='dark'
-              autoClose={3000}
-            /> */}
+              <ToastContainer
+                position='bottom-right'
+                theme='dark'
+                autoClose={3000}
+              />
             </div>
           </QueryProvider>
         </AuthProvider>

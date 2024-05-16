@@ -8,9 +8,9 @@ const UserLinks = () => {
   const { status } = useSession()
   const router = useRouter()
 
-  if (status !== 'authenticated') {
-    router.push('/login')
-  }
+  // if (status !== 'authenticated') {
+  //   router.push('/login')
+  // }
 
   return (
     <>
