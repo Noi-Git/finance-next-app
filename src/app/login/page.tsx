@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { homeSubTitle, homeTitle } from '@/components/styles/home-style'
 import {
@@ -15,6 +17,9 @@ import {
 } from '@/components/styles/login-style'
 
 const Login = () => {
+  const { data, status } = useSession()
+  const router = useRouter()
+
   return (
     <>
       <div className={loginHomeContainer}>
@@ -38,6 +43,7 @@ const Login = () => {
                 alt='google icon'
                 width={50}
                 height={50}
+                onClick={() => signIn('google')}
                 className='object-contains'
               />
               <span className={loginButtonTextGoogle}>Sign in with Google</span>
