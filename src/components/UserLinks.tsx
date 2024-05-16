@@ -1,24 +1,33 @@
 'use client'
 import React from 'react'
-import { useSession } from 'next-auth/react'
+import { signIn, signOut, useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { landingCardContents, landingPageButton } from './styles/home-style'
+import { logInOut } from './styles/nav-style'
+import { Router } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 const UserLinks = () => {
-  const { data, status } = useSession()
+  const { status } = useSession()
+  const router = useRouter()
+
+  if (status !== 'authenticated') {
+    router.push('/login')
+  }
+
   return (
     <>
-      <div className={landingCardContents}>
+      <div>
         {status === 'authenticated' ? (
           <>
-            <Link href='/home' className={landingPageButton}>
-              Home page
-            </Link>
+            <span className={logInOut} onClick={() => signOut()}>
+              Logout
+            </span>
           </>
         ) : (
-          <Link href='/login' className={landingPageButton}>
+          <span className={logInOut} onClick={() => signIn()}>
             Login
-          </Link>
+          </span>
         )}
       </div>
     </>

@@ -61,21 +61,21 @@ model VerificationToken {
 
 //one IncomeBudget <-- has multiple --> IncomeItem
 model IncomeBudget {
-  ib_id       String       @id @default(cuid())
-  createdAt   DateTime     @default(now())
-  ib_name     String
-  ib_amount   Decimal
-  optionsJson Json[]
-  options     IncomeItem[]
+  ib_id      String       @id @default(cuid())
+  createdAt  DateTime     @default(now())
+  ib_name    String
+  ib_amount  Decimal
+  options    Json[]
+  budgetType IncomeItem[]
 }
 
 model IncomeItem {
-  i_id       String       @id @default(cuid())
-  createdAt  DateTime     @default(now())
-  i_name     String
-  i_amount   Decimal
-  incomeType IncomeBudget @relation(fields: [incomeName], references: [ib_id])
-  incomeName String
+  i_id         String       @id @default(cuid())
+  createdAt    DateTime     @default(now())
+  i_name       String
+  i_amount     Decimal
+  incomeType   IncomeBudget @relation(fields: [incomeTypeId], references: [ib_id])
+  incomeTypeId String
 }
 
 model ExpenseBudget {

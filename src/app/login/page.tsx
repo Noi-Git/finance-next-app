@@ -26,7 +26,7 @@ const Login = () => {
   }
 
   if (status === 'authenticated') {
-    router.push('/')
+    router.push('/home')
   }
 
   return (
@@ -46,13 +46,15 @@ const Login = () => {
             <h2 className={homeSubTitle}>
               Take charge of your finance freedom
             </h2>
-            <button className={loginButtonGoogle}>
+            <button
+              className={loginButtonGoogle}
+              onClick={() => signIn('google')}
+            >
               <Image
                 src='/google-icon.svg'
                 alt='google icon'
                 width={50}
                 height={50}
-                onClick={() => signIn('google')}
                 className='object-contains'
               />
               <span className={loginButtonTextGoogle}>Sign in with Google</span>
