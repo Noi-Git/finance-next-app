@@ -14,12 +14,6 @@ import {
 import { getData } from '@/app/api/itype/route'
 import { toast } from 'react-toastify'
 
-const incomeBudget = [
-  { id: 1, name: 'salary' },
-  { id: 2, name: 'gardening' },
-  { id: 3, name: 'dog walking' },
-]
-
 const IncomeItem = () => {
   const [incomeItem, setIncomeItem] = useState([])
 
@@ -101,13 +95,13 @@ const IncomeItem = () => {
                     className={itemInput}
                     required
                   >
-                    {incomeBudget.map((budget) => {
+                    {/* {incomeBudget.map((budget) => {
                       return (
                         <option key={budget.id} value={budget.id}>
                           {budget.name}
                         </option>
                       )
-                    })}
+                    })} */}
                   </select>
                 </div>
               </form>
