@@ -1,10 +1,7 @@
 'use client'
 import React from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
-import { landingCardContents, landingPageButton } from './styles/home-style'
 import { logInOut } from './styles/nav-style'
-import { Router } from 'next/router'
 import { useRouter } from 'next/navigation'
 
 const UserLinks = () => {
