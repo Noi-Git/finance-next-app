@@ -1,3 +1,5 @@
+'use clinet'
+
 import Notification from '@/components/Notification'
 import Navbar from '../components/Navbar'
 import type { Metadata } from 'next'

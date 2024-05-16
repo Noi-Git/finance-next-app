@@ -3,7 +3,6 @@ import {
   availableAmount,
   availableText,
   pageButtonWrap,
-  pageButton,
   pageIncomeButton,
   pageExpenseButton,
   pageSavingButton,
@@ -13,6 +12,7 @@ import {
   pageSavingAmount,
   pageWrap,
 } from '@/components/styles/home-style'
+import Link from 'next/link'
 
 const Home = () => {
   return (
@@ -26,9 +26,15 @@ const Home = () => {
           <button className={pageSavingAmount}>$400</button>
         </div>
         <div className={pageButtonWrap}>
-          <button className={pageIncomeButton}>Income</button>
-          <button className={pageExpenseButton}>Expense</button>
-          <button className={pageSavingButton}>Saving</button>
+          <Link href='/incomes' className={pageIncomeButton}>
+            Income
+          </Link>
+          <Link href='/' className={pageExpenseButton}>
+            Expense
+          </Link>
+          <Link href='/' className={pageSavingButton}>
+            Saving
+          </Link>
         </div>
       </div>
     </>

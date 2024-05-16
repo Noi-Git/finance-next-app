@@ -13,38 +13,112 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model IncomeBudget {
-  ib_id     String   @id @default(cuid())
-  createdAt DateTime @default(now())
-  ib_name   String
-  ib_amount Decimal
-  slug      String   @unique
-  i_type    Income[]
+// model Account {
+//   id                String  @id @default(cuid())
+//   userId            String
+//   type              String
+//   provider          String
+//   providerAccountId String
+//   refresh_token     String? @db.Text
+//   access_token      String? @db.Text
+//   expires_at        Int?
+//   token_type        String?
+//   scope             String?
+//   id_token          String? @db.Text
+//   session_state     String?
+
+//   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+//   @@unique([provider, providerAccountId])
+// }
+
+// model Session {
+//   id           String   @id @default(cuid())
+//   sessionToken String   @unique
+//   userId       String
+//   expires      DateTime
+//   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+// }
+
+// model User {
+//   id            String    @id @default(cuid())
+//   name          String?
+//   email         String?   @unique
+//   emailVerified DateTime?
+//   image         String?
+//   isAdmin       Boolean   @default(false)
+//   accounts      Account[]
+//   sessions      Session[]
+
+// }
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
-model Income {
-  i_id      String       @id @default(cuid())
-  createdAt DateTime     @default(now())
-  i_name    String
-  i_amount  Decimal
-  i_type    IncomeBudget @relation(fields: [iSlug], references: [slug])
-  iSlug     String
+//one IncomeBudget <-- has multiple --> IncomeItem
+model IncomeBudget {
+  ib_id      String       @id @default(cuid())
+  createdAt  DateTime     @default(now())
+  ib_name    String
+  ib_amount  Decimal
+  budgetType IncomeItem[]
+}
+
+model IncomeItem {
+  i_id         String       @id @default(cuid())
+  createdAt    DateTime     @default(now())
+  i_name       String
+  i_amount     Decimal
+  incomeType   IncomeBudget @relation(fields: [incomeTypeId], references: [ib_id])
+  incomeTypeId String
 }
 
 model ExpenseBudget {
-  eb_id     String    @id @default(cuid())
-  createdAt DateTime  @default(now())
-  eb_name   String
-  eb_amount Decimal
-  slug      String    @unique
-  e_type    Expense[]
+  eb_id       String    @id @default(cuid())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @default(now())
+  eb_name     String
+  eb_amount   Decimal
+  expenseType Expense[]
 }
 
 model Expense {
-  e_id      String        @id @default(cuid())
-  createdAt DateTime      @default(now())
-  e_name    String
-  e_amount  Decimal
-  e_type    ExpenseBudget @relation(fields: [eSlug], references: [slug])
-  eSlug     String
+  e_id          String        @id @default(cuid())
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @default(now())
+  e_name        String
+  e_amount      Decimal
+  expenseType   ExpenseBudget @relation(fields: [expenseTypeId], references: [eb_id])
+  expenseTypeId String
 }
+
+model SavingBudget {
+  sb_id      String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now())
+  sb_name    String
+  sb_amount  Decimal
+  savingType Saving[]
+}
+
+model Saving {
+  s_id         String       @id @default(cuid())
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @default(now())
+  s_name       String
+  s_amount     Decimal
+  savingType   SavingBudget @relation(fields: [savingTypeId], references: [sb_id])
+  savingTypeId String
+}
+
+// async function main() {
+// await prisma.user.deleteMany()
+// }
+
+//then -- npm run devStart
+//npx prisma migrate dev
