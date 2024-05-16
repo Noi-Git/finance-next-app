@@ -1,4 +1,4 @@
-import { NextAuthOptions } from 'next-auth'
+import { NextAuthOptions, getServerSession } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 
 export const authOptions: NextAuthOptions = {
@@ -12,3 +12,6 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 }
+
+//getAuthSession allow use to get user info and status inside the component
+export const getAuthSession = () => getServerSession(authOptions)

@@ -8,7 +8,6 @@ import Image from 'next/image'
 import UserLinks from '@/components/UserLinks'
 
 const LandingPage = () => {
-  const user = true
   return (
     <>
       <div className={landingContents}>

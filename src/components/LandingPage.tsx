@@ -15,7 +15,8 @@ const LandingPage = () => {
   const user = true
   return (
     <>
-      <div className={landingContents}>
+      <p>Move all of this to UserLink.tsx and the main app page</p>
+      {/* <div className={landingContents}>
         <div className={landingCard}>
           <div className={landingCardImage}>
             <Image
@@ -40,7 +41,7 @@ const LandingPage = () => {
             )}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
