@@ -20,6 +20,14 @@ const Login = () => {
   const { data, status } = useSession()
   const router = useRouter()
 
+  if (status === 'loading') {
+    return <p>Loading...</p>
+  }
+
+  if (status === 'authenticated') {
+    router.push('/')
+  }
+
   return (
     <>
       <div className={loginHomeContainer}>
