@@ -6,6 +6,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import AuthProvider from '@/components/AuthProvider'
 import Navbar from '../components/Navbar'
+import QueryProvider from '@/components/QueryProvider'
 // import { ToastContainer } from 'react-toastify'
 // import 'react-toastify/dist/ReactToastify.css'
 
@@ -25,15 +26,17 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className}>
         <AuthProvider>
-          <div>
-            <Navbar />
-            {children}
-            {/* <ToastContainer
+          <QueryProvider>
+            <div>
+              <Navbar />
+              {children}
+              {/* <ToastContainer
               position='bottom-right'
               theme='dark'
               autoClose={3000}
             /> */}
-          </div>
+            </div>
+          </QueryProvider>
         </AuthProvider>
       </body>
     </html>
