@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { IBudget } from '@/types/types'
+import { IBudget, IItem } from '@/types/types'
 import { createIncomeBudget } from '@/utils/incomeHelper'
 
 //FETCH INCOME TYPE
@@ -99,7 +99,7 @@ export function UseIncomeItem() {
 export function UseCreateIncomeItem() {
   const QueryClient = useQueryClient()
   return useMutation({
-    mutationFn: (newItem: IBudget) => {
+    mutationFn: (newItem: IItem) => {
       return fetch('http://localhost:3000/api/iitem', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -108,14 +108,14 @@ export function UseCreateIncomeItem() {
     },
     onSuccess: async () => {
       console.log('success')
-      return toast.success('Budget created!')
+      return toast.success('Item created!')
     },
     onSettled: async (_, error) => {
       //_, means it should have some value but we don't want it
       if (error) {
         console.log(error)
       } else {
-        await QueryClient.invalidateQueries({ queryKey: ['incomeBudget'] }) //incomeBudget is from Query -- will automatically refresh the page
+        await QueryClient.invalidateQueries({ queryKey: ['incomeItem'] }) //incomeBudget is from Query -- will automatically refresh the page
       }
     },
   })
@@ -124,7 +124,7 @@ export function UseCreateIncomeItem() {
 export function UseUpdateIncomeItem() {
   const QueryClient = useQueryClient()
   return useMutation({
-    mutationFn: ({ id, newItem }: { id: string; newItem: IBudget }) => {
+    mutationFn: ({ id, newItem }: { id: string; newItem: IItem }) => {
       return fetch(`http://http://localhost:3000/api/iitem/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
