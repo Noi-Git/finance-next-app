@@ -17,10 +17,8 @@ import { useSession } from 'next-auth/react'
 import { UseCreateIncome, UseIncomeBudget } from '../page'
 import { IBudget } from '@/types/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Mutation } from '@tanstack/react-query'
 
 const IncomeType = () => {
-  // const fetcher = useFetcher()
   const { data, error, isLoading } = UseIncomeBudget()
   const createBudgetMutation = UseCreateIncome() //step 1
 
@@ -33,9 +31,6 @@ const IncomeType = () => {
     createBudgetMutation.mutate(newBudget)
     reset()
   }
-
-  // const isSubmitting = fetcher.state === 'isSubmitting'
-  // const formRef = useRef
 
   if (error) return <p>Something went wrong...</p>
   if (isLoading || status === 'loading') return <p>Loading...</p>

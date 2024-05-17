@@ -107,7 +107,6 @@ export async function incomeDashboardAction() {
 const Incomes = () => {
   return (
     <>
-      {/* {ibTypeData} */}
       <IncomeType />
       <IncomeItem />
       <IncomeDetails />

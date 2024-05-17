@@ -32,7 +32,7 @@ export default function RootLayout({
               <Navbar />
               {children}
               <ToastContainer
-                position='bottom-right'
+                position='top-right'
                 theme='dark'
                 autoClose={3000}
               />
