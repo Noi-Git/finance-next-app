@@ -72,16 +72,23 @@ const IncomeType = () => {
                     required
                   />
                 </div>
+                <input
+                  type='hidden'
+                  name='_action'
+                  value='createIncomeBudget'
+                />
+                <button
+                  type='submit'
+                  disabled={createBudgetMutation.isPending}
+                  value={
+                    createBudgetMutation.isPending ? 'Creating...' : 'Created'
+                  }
+                  className={incomeButton}
+                >
+                  Add Income Goal
+                </button>
               </form>
             </div>
-            <button
-              type='submit'
-              disabled={createBudgetMutation.isPending}
-              value={createBudgetMutation.isPending ? 'Creating...' : 'Created'}
-              className={incomeButton}
-            >
-              Add Income Goal
-            </button>
           </div>
         </div>
       </div>
