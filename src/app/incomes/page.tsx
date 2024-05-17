@@ -42,7 +42,6 @@ export function useCreateIncome() {
 
 export function useUpdateIncome() {
   const QueryClient = useQueryClient()
-
   return useMutation({
     mutationFn: ({ id, newBudget }: { id: string; newBudget: IBudget }) => {
       return fetch(`http://http://localhost:3000/api/itype/${id}`, {
@@ -60,6 +59,28 @@ export function useUpdateIncome() {
         await QueryClient.invalidateQueries({
           queryKey: ['incomeB', { id: variables.id }],
         })
+      }
+    },
+  })
+}
+
+export function useDeleteIncome() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({ id }: { id: string }) => {
+      return fetch(`http://http://localhost:3000/api/itype/${id}`, {
+        method: 'DELETE',
+      })
+    },
+    onSuccess: () => {
+      console.log('Deleted')
+    },
+    onSettled: async (_, error) => {
+      if (error) {
+        console.log(error)
+      } else {
+        await queryClient.invalidateQueries({ queryKey: ['incomeBudget'] })
       }
     },
   })
