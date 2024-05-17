@@ -15,6 +15,8 @@ const Incomes = () => {
         <>
           <IncomeType />
           <IncomeItem />
+          <IncomeDetails />
+          <IncomeTable />
         </>
       ) : (
         <>

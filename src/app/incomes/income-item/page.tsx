@@ -46,11 +46,11 @@ const IncomeItem = () => {
         <div className={budgetContainer}>
           <div className={budgetCard}>
             <h2 className={cardTypeTitle}>
-              Add New{' '}
-              <span>
+              Add New Income{' '}
+              {/* <span>
                 {data.length === 1 &&
-                  `${data.map((iname: any) => iname.i_name)}`}
-              </span>
+                  `${data.map((iname: any) => iname.ib_name)}`}
+              </span> */}
             </h2>
 
             <div className={itemFormWrap}>
@@ -62,7 +62,8 @@ const IncomeItem = () => {
                   <label className={itemLabel}>Income Name</label>
                   <input
                     type='text'
-                    name='newExpense'
+                    {...register('i_name')}
+                    // name='newExpense'
                     id='newExpense'
                     placeholder='e.g., gradening'
                     className={itemInput}
@@ -76,7 +77,8 @@ const IncomeItem = () => {
                     type='number'
                     step='0.01'
                     inputMode='decimal'
-                    name='newExpenseAmount'
+                    {...register('i_amount')}
+                    // name='newExpenseAmount'
                     id='newExpenseAmount'
                     className={itemInput}
                     placeholder='e.g. 50'
@@ -87,14 +89,19 @@ const IncomeItem = () => {
                 <div className={itemFormField}>
                   <label className={itemLabel}>Income Type</label>
                   <select
-                    name='newExpenseBudget'
+                    // name='newExpenseBudget'
                     id='newExpenseBudget'
+                    // {...register('ib_name')}
                     className={itemInput}
                     required
                   >
                     {data.map((item: any) => {
                       return (
-                        <option key={item.ib_id} value={item.ib_id}>
+                        <option
+                          key={item.ib_id}
+                          value={item.ib_id}
+                          {...register('i_name')}
+                        >
                           {item.ib_name}
                         </option>
                       )
