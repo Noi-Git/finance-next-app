@@ -1,4 +1,8 @@
-import { UseCreateIncome, UseIncomeBudget } from '@/app/incomes/page'
+import {
+  UseCreateIncome,
+  UseIncomeBudget,
+  UseIncomeItem,
+} from '@/app/incomes/income-fetch/page'
 
 export const formatDateToLocalString = (epoch: any) =>
   new Date(epoch).toLocaleDateString()
@@ -14,13 +18,11 @@ export const createIncomeBudget = ({ ib_name, ib_amount }: any) => {
 }
 
 export const createIncomeItem = ({ ib_name, ib_amount }: any) => {
+  const { data, error, isLoading } = UseIncomeItem()
   const newItem = {
     ib_name,
     ib_amount: +ib_amount,
   }
-  // const existingBudgets = getData() ?? []
-  // return localStorage.setItem(
-  //   'budgets',
-  //   JSON.stringify([...existingBudgets, newItem])
-  // )
+  const existingItems = data ?? []
+  return UseIncomeItem(), JSON.stringify([...existingItems, newItem])
 }
