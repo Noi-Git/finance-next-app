@@ -1,9 +1,9 @@
 export type IncomeBudgetType = {
-  ib_id: String
+  ib_id?: String
   ib_name: String
   ib_amount: number
-  createdAt: Date
-  options: { i_name: String; i_amount: number }
+  createdAt?: Date
+  options?: { i_name: String; i_amount: number }
 }
 
 export const IncomeItem = {
@@ -11,4 +11,9 @@ export const IncomeItem = {
   createdAt: Date,
   i_name: String,
   i_amount: Number,
+}
+
+interface IncomeBudgetInput {
+  incomeType: string
+  incomeBudgetAmount: string
 }
