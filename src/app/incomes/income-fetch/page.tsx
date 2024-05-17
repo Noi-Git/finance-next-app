@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { IBudget } from '@/types/types'
 import { createIncomeBudget } from '@/utils/incomeHelper'
 
+//FETCH INCOME TYPE
 //QUERY
 export function UseIncomeBudget() {
   return useQuery({
@@ -68,6 +69,88 @@ export function UseDeleteIncome() {
   return useMutation({
     mutationFn: ({ id }: { id: string }) => {
       return fetch(`http://http://localhost:3000/api/itype/${id}`, {
+        method: 'DELETE',
+      })
+    },
+    onSuccess: () => {
+      console.log('Deleted')
+    },
+    onSettled: async (_, error) => {
+      if (error) {
+        console.log(error)
+      } else {
+        await queryClient.invalidateQueries({ queryKey: ['incomeBudget'] })
+      }
+    },
+  })
+}
+
+//=== FETCH INCOME ITEM ===
+//QUERY
+export function UseIncomeItem() {
+  return useQuery({
+    queryKey: ['incomeBudget'],
+    queryFn: () =>
+      fetch('http://localhost:3000/api/iitem').then((res) => res.json()),
+  })
+}
+
+//MUTATION FOR CREATE
+export function UseCreateIncomeItem() {
+  const QueryClient = useQueryClient()
+  return useMutation({
+    mutationFn: (newItem: IBudget) => {
+      return fetch('http://localhost:3000/api/iitem', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newItem),
+      })
+    },
+    onSuccess: async () => {
+      console.log('success')
+      return toast.success('Budget created!')
+    },
+    onSettled: async (_, error) => {
+      //_, means it should have some value but we don't want it
+      if (error) {
+        console.log(error)
+      } else {
+        await QueryClient.invalidateQueries({ queryKey: ['incomeBudget'] }) //incomeBudget is from Query -- will automatically refresh the page
+      }
+    },
+  })
+}
+
+export function UseUpdateIncomeItem() {
+  const QueryClient = useQueryClient()
+  return useMutation({
+    mutationFn: ({ id, newItem }: { id: string; newItem: IBudget }) => {
+      return fetch(`http://http://localhost:3000/api/iitem/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newItem),
+      })
+    },
+
+    onSettled: async (_, error, variables) => {
+      if (error) {
+        console.log(error)
+      } else {
+        await QueryClient.invalidateQueries({ queryKey: ['incomeBudget'] })
+        await QueryClient.invalidateQueries({
+          queryKey: ['incomeB', { id: variables.id }],
+        })
+      }
+    },
+  })
+}
+
+export function UseDeleteIncomeItem() {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({ id }: { id: string }) => {
+      return fetch(`http://http://localhost:3000/api/iitem/${id}`, {
         method: 'DELETE',
       })
     },
