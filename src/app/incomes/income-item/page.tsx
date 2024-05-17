@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -11,44 +11,13 @@ import {
   itemLabel,
   itemSelect,
 } from '@/components/styles/form-style'
-// import { getData } from '@/app/api/itype/route'
 import { toast } from 'react-toastify'
 
 const IncomeItem = () => {
-  const [incomeItem, setIncomeItem] = useState([])
+  // const { _action, ...values } = Object.fromEntries(iData)
 
-  // useEffect(() => {
-  //   getData()
-  //     .then((data) => {
-  //       setIncomeItem(data)
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching data', error)
-  //     })
-  // }, [])
-
-  if (incomeItem === null) {
-    return <div>Loading...</div>
-  }
-
-  const iData = incomeItem
-  const { _action, ...values } = Object.fromEntries(iData)
-  console.log('🚀 ibTypeData:--', iData)
-
-  if (_action === 'createIncomeItem') {
-    // === dispatch to database
-    // try {
-    //   createIncomeItem({
-    //     name: values.newExpense,
-    //     amount: values.newExpenseAmount,
-    //     budgetId: values.newExpenseBudget,
-    //   })
-    //   // console.log('values.newExpense', values)
-    //   return toast.success(`Expense ${values.newExpense} created!`)
-    // } catch (error) {
-    //   throw new Error('There was a problem creating your expense.')
-    // }
-  }
+  // if (_action === 'createIncomeItem') {
+  // }
 
   return (
     <>
