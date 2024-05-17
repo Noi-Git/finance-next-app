@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { useFetcher } from 'react-router-dom'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -18,19 +17,25 @@ import { useSession } from 'next-auth/react'
 import { UseCreateIncome, UseIncomeBudget } from '../page'
 import { IBudget } from '@/types/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import { Mutation } from '@tanstack/react-query'
 
 const IncomeType = () => {
-  const fetcher = useFetcher()
+  // const fetcher = useFetcher()
   const { data, error, isLoading } = UseIncomeBudget()
   const createBudgetMutation = UseCreateIncome() //step 1
 
   const { data: session, status } = useSession()
 
-  const { register, handleSubmit } = useForm<IBudget>() //step 3
+  const { register, handleSubmit, reset } = useForm<IBudget>() //step 3
+
   const handleInputChangeSubmit: SubmitHandler<IBudget> = (newBudget) => {
     //step 2
     createBudgetMutation.mutate(newBudget)
+    reset()
   }
+
+  // const isSubmitting = fetcher.state === 'isSubmitting'
+  // const formRef = useRef
 
   if (error) return <p>Something went wrong...</p>
   if (isLoading || status === 'loading') return <p>Loading...</p>
@@ -43,7 +48,7 @@ const IncomeType = () => {
             <h2 className={cardTypeTitle}>Income: Type & Goal</h2>
 
             <div className={cardFormWrap}>
-              <fetcher.Form
+              <form
                 className={cardForm}
                 onSubmit={handleSubmit(handleInputChangeSubmit)}
               >
@@ -89,7 +94,7 @@ const IncomeType = () => {
                 >
                   Add Income Goal
                 </button>
-              </fetcher.Form>
+              </form>
             </div>
           </div>
         </div>
