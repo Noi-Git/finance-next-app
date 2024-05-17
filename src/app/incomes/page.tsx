@@ -37,6 +37,10 @@ export function useCreateIncome() {
   })
 }
 
+export function useUpdateIncome() {
+  const QueryClient = useQueryClient()
+}
+
 const Incomes = () => {
   return (
     <>

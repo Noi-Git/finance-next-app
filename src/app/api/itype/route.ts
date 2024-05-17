@@ -34,15 +34,57 @@ export const POST = async (req: NextRequest) => {
   }
 }
 
-export const getData = async () => {
-  const test = await fetch('http://localhost:3000/api/itype', {
-    cache: 'no-store',
-  })
-    .then((res) => res.json())
-    .then((ibudgets) => {
-      // console.log(ibudgets)
-      return ibudgets
-    })
-  // console.log(test)
-  return test
+export const PUT = async (
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { id } = params
+  const session = await getAuthSession()
+  if (session) {
+    try {
+      const body = await req.json()
+
+      await prisma.incomeBudget.update({
+        where: {
+          ib_id: id,
+        },
+        data: body,
+      })
+      return new NextResponse(JSON.stringify({ message: 'Updated' }), {
+        status: 200,
+      })
+    } catch (err) {
+      console.log(err)
+      return new NextResponse(
+        JSON.stringify({ message: 'Something went wrong' }),
+        { status: 500 }
+      )
+    }
+  }
+}
+
+export const DELETE = async (
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { id } = params
+  const session = await getAuthSession()
+  if (session) {
+    try {
+      await prisma.incomeBudget.delete({
+        where: {
+          ib_id: id,
+        },
+      })
+      return new NextResponse(JSON.stringify({ message: 'Deleted' }), {
+        status: 200,
+      })
+    } catch (err) {
+      console.log(err)
+      return new NextResponse(
+        JSON.stringify({ message: 'Something went wrong' }),
+        { status: 500 }
+      )
+    }
+  }
 }
