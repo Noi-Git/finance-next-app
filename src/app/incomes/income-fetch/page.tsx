@@ -89,7 +89,7 @@ export function UseDeleteIncome() {
 //QUERY
 export function UseIncomeItem() {
   return useQuery({
-    queryKey: ['incomeBudget'],
+    queryKey: ['incomeItem'],
     queryFn: () =>
       fetch('http://localhost:3000/api/iitem').then((res) => res.json()),
   })
