@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Getting Started with Personal Finance App
 
-## Getting Started
+Welcome to the Personal Finance Manangement repository! This README will guide you through setting up the project and understanding its structure.
 
-First, run the development server:
+## Clone the Repository
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Clone the main repository branch to your local computer using the following command:
+  `git clone <repo code>`
+
+## Setup Project for developement environment
+
+1. run npm install
+2. Create .env file at the root
+3. Sign up to Google Fire base to create your own API key
+   `https://console.firebase.google.com/`
+4. Create a database name `finance_db` in your Postgres database
+5. Add your credentials in the .env as shown below
+
+```
+DATABASE_URL="postgresql://<your-db-username>:<your-db-password>@localhost:<PORT>/finance_db?schema=public"
+NEXTAUTH_URL=http://localhost:<PORT>
+NEXTAUTH_SECRET="You should add random text here and this is my"
+GOOGLE_ID=<your-google-credential>
+GOOGLE_SECRET=<your-google-secrate>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build database
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Run `npx prisma migrate dev`
+2. It will ask for a name - you can provide any name
+3. After the database finish building
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- on the menu of your code editor
+- go to prisma > migration > to see Postgresql code
 
-## Learn More
+4. Optional: to see data on prisma studio `npx prisma studio`
 
-To learn more about Next.js, take a look at the following resources:
+## Run project in development environment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`npm run dev`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tech Stacks
 
-## Deploy on Vercel
+### Backend:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Frontend:
+
+- React
+- React-Redux-TanStack
+- Tailwind css
+
+### Authentication
+
+- Firebase
+
+### Database
+
+- Postgresql
+- Prisma ORM
+
+![Alt database diagram page](./assests/database-design.png)
+![Alt database diagram page](./assests/login.png)
+![Alt database diagram page](./assests/income-goal.png)
+![Alt database diagram page](./assests/income-main.png)
