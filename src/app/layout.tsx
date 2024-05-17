@@ -36,8 +36,8 @@ export default function RootLayout({
                 theme='dark'
                 autoClose={3000}
               /> */}
-              <ReactQueryDevtools initialIsOpen={false} />
             </div>
+            <ReactQueryDevtools initialIsOpen={false} />
           </QueryProvider>
         </AuthProvider>
       </body>
