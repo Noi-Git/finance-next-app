@@ -11,21 +11,21 @@ import {
   itemLabel,
   itemSelect,
 } from '@/components/styles/form-style'
-import { getData } from '@/app/api/itype/route'
+// import { getData } from '@/app/api/itype/route'
 import { toast } from 'react-toastify'
 
 const IncomeItem = () => {
   const [incomeItem, setIncomeItem] = useState([])
 
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        setIncomeItem(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching data', error)
-      })
-  }, [])
+  // useEffect(() => {
+  //   getData()
+  //     .then((data) => {
+  //       setIncomeItem(data)
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching data', error)
+  //     })
+  // }, [])
 
   if (incomeItem === null) {
     return <div>Loading...</div>

@@ -22,7 +22,7 @@ export function UseCreateIncome() {
   const QueryClient = useQueryClient()
   return useMutation({
     mutationFn: (newBudget: IBudget) => {
-      return fetch('http://http://localhost:3000/api/itype', {
+      return fetch('http://localhost:3000/api/itype', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newBudget),
@@ -30,6 +30,7 @@ export function UseCreateIncome() {
     },
     onSuccess: async () => {
       console.log('success')
+      return toast.success('Budget created!')
     },
     onSettled: async (_, error) => {
       //_, means it should have some value but we don't want it
@@ -95,10 +96,7 @@ export async function incomeDashboardAction() {
 
   if (_action === 'createIncomeBudget') {
     try {
-      createIncomeBudget({
-        name: values.newBudget,
-        amount: values.newBudgetAmount,
-      })
+      createIncomeBudget({})
       return toast.success('Budget created!')
     } catch (error) {
       throw new Error('There was a problem creating your budget.')

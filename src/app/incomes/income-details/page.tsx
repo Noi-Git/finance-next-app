@@ -8,20 +8,20 @@ import {
 } from '@/components/styles/detail-style'
 import { featureIncomeItem } from '@/data'
 import { homeCard } from '@/components/styles/home-style'
-import { getData } from '@/app/api/itype/route'
+// import { getData } from '@/app/api/itype/route'
 
 const IncomeDetails = () => {
   const [incomeBudgetType, setIncomeBudgetType] = useState([])
 
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        setIncomeBudgetType(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching data', error)
-      })
-  }, [])
+  // useEffect(() => {
+  //   getData()
+  //     .then((data) => {
+  //       setIncomeBudgetType(data)
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching data', error)
+  //     })
+  // }, [])
 
   if (incomeBudgetType === null) {
     return <div>Loading...</div>

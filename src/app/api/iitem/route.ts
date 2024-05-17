@@ -15,13 +15,13 @@ export const GET = async () => {
 }
 
 //convert promise into array of objects
-export const getData = async () => {
-  const data = await fetch('http://localhost:3000/api/i-item', {
-    cache: 'no-store',
-  })
-    .then((response) => response.json())
-    .then((iitems) => {
-      return iitems
-    })
-  return data
-}
+// export const getData = async () => {
+//   const data = await fetch('http://localhost:3000/api/i-item', {
+//     cache: 'no-store',
+//   })
+//     .then((response) => response.json())
+//     .then((iitems) => {
+//       return iitems
+//     })
+//   return data
+// }
