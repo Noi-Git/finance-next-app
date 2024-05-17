@@ -2,19 +2,6 @@ import { getAuthSession } from '@/utils/auth'
 import { prisma } from '@/utils/connect'
 import { NextRequest, NextResponse } from 'next/server'
 
-// export const GET = async () => {
-//   try {
-//     const iitem = await prisma.incomeItem.findMany()
-//     return new NextResponse(JSON.stringify(iitem), { status: 200 })
-//   } catch (err) {
-//     console.log('fetch income type error: --', err)
-//     return new NextResponse(
-//       JSON.stringify({ message: 'Something went wrong!' }),
-//       { status: 500 }
-//     )
-//   }
-// }
-
 export const GET = async () => {
   try {
     const iitem = await prisma.incomeItem.findMany()
