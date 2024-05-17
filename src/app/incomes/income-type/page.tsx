@@ -1,7 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify'
+import React from 'react'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -14,31 +13,25 @@ import {
   cardTypeTitle,
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
-import { getData } from '@/app/api/itype/route'
+import { useSession } from 'next-auth/react'
+import { useCreateIncome, useIncomeBudget } from '../page'
+import { IBudget } from '@/types/types'
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 const IncomeType = () => {
-  const [incomeBudgetType, setIncomeBudgetType] = useState([])
+  const { data, error, isLoading } = useIncomeBudget()
+  const createBudgetMutation = useCreateIncome() //step 1
 
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        setIncomeBudgetType(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching data', error)
-      })
-  }, [])
+  const { data: session, status } = useSession()
 
-  if (incomeBudgetType === null) {
-    return <div>Loading...</div>
+  const { register, handleSubmit } = useForm<IBudget>() //step 3
+  const handleInputChangeSubmit: SubmitHandler<IBudget> = (newBudget) => {
+    //step 2
+    createBudgetMutation.mutate(newBudget)
   }
 
-  const ibTypeData = incomeBudgetType
-  const { _action, ...values } = Object.fromEntries(ibTypeData)
-  // console.log('🚀 ibTypeData:--', ibTypeData)
-
-  if (_action === 'createIncomeBudget') {
-  }
+  if (error) return <p>Something went wrong...</p>
+  if (isLoading || status === 'loading') return <p>Loading...</p>
 
   return (
     <>
@@ -48,15 +41,17 @@ const IncomeType = () => {
             <h2 className={cardTypeTitle}>Income: Type & Goal</h2>
 
             <div className={cardFormWrap}>
-              <form method='POST' className={cardForm}>
+              <form
+                className={cardForm}
+                onSubmit={handleSubmit(handleInputChangeSubmit)}
+              >
                 <div className={cardFormField}>
                   <label className={cardLabel} htmlFor='newBudget'>
                     Budget Name
                   </label>
                   <input
                     type='text'
-                    name='IncomeBudgetName'
-                    id='IncomeBudgetName'
+                    {...register('ib_name')}
                     placeholder='e.g.Salary'
                     className={cardInput}
                     required
@@ -70,8 +65,7 @@ const IncomeType = () => {
                   <input
                     type='number'
                     step='0.01'
-                    name='IncomeBudgetAmount'
-                    id='IncomeBudgetAmount'
+                    {...register('ib_amount')}
                     placeholder='e.g., $3500.00'
                     className={cardInput}
                     inputMode='decimal'
@@ -80,8 +74,12 @@ const IncomeType = () => {
                 </div>
               </form>
             </div>
-            <input type='hidden' name='_action' value='createIncomeBudget' />
-            <button type='submit' className={incomeButton}>
+            <button
+              type='submit'
+              disabled={createBudgetMutation.isPending}
+              value={createBudgetMutation.isPending ? 'Creating...' : 'Created'}
+              className={incomeButton}
+            >
               Add Income Goal
             </button>
           </div>
