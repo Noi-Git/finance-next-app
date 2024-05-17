@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
+import { signIn, useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { homeSubTitle, homeTitle } from '@/components/styles/home-style'
 import {
@@ -15,6 +17,18 @@ import {
 } from '@/components/styles/login-style'
 
 const Login = () => {
+  const { data, status } = useSession()
+  // console.log('🚀 ~ Login ~ status:', status)
+  const router = useRouter()
+
+  if (status === 'loading') {
+    return <p>Loading...</p>
+  }
+
+  if (status === 'authenticated') {
+    router.push('/home')
+  }
+
   return (
     <>
       <div className={loginHomeContainer}>
@@ -32,7 +46,10 @@ const Login = () => {
             <h2 className={homeSubTitle}>
               Take charge of your finance freedom
             </h2>
-            <button className={loginButtonGoogle}>
+            <button
+              className={loginButtonGoogle}
+              onClick={() => signIn('google')}
+            >
               <Image
                 src='/google-icon.svg'
                 alt='google icon'

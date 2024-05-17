@@ -1,12 +1,32 @@
-'use client'
-import LandingPage from '@/components/LandingPage'
-import { homeContainer } from '@/components/styles/home-style'
+import React from 'react'
+import {
+  landingCard,
+  landingCardImage,
+  landingContents,
+} from '@/components/styles/home-style'
+import Image from 'next/image'
+import UserLinks from '@/components/UserLinks'
+import Login from './login/page'
 
-export default function Home() {
+const LandingPage = () => {
   return (
     <>
-      {/* <main className={homeContainer}>This is going to a home page</main> */}
-      <LandingPage />
+      <div className={landingContents}>
+        {/* <div className={landingCard}> */}
+        {/* <div className={landingCardImage}>
+            <Image
+              src='/money-tree.svg'
+              alt='a tree with golden coins'
+              width={500}
+              height={500}
+            ></Image>
+          </div> */}
+        <Login />
+        {/* <UserLinks /> */}
+        {/* </div> */}
+      </div>
     </>
   )
 }
+
+export default LandingPage

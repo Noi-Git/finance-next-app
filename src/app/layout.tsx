@@ -1,10 +1,15 @@
 'use clinet'
 
 import Notification from '@/components/Notification'
-import Navbar from '../components/Navbar'
+import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import AuthProvider from '@/components/AuthProvider'
+import Navbar from '../components/Navbar'
+import QueryProvider from '@/components/QueryProvider'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+// import { ToastContainer } from 'react-toastify'
+// import 'react-toastify/dist/ReactToastify.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,10 +26,20 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        {/* <Notification /> */}
-        <Navbar />
-        {children}
-        {/* <Footer /> */}
+        <AuthProvider>
+          <QueryProvider>
+            <div>
+              <Navbar />
+              {children}
+              {/* <ToastContainer
+                position='bottom-right'
+                theme='dark'
+                autoClose={3000}
+              /> */}
+            </div>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryProvider>
+        </AuthProvider>
       </body>
     </html>
   )

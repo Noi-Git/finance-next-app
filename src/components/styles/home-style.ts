@@ -51,9 +51,8 @@ export const landingCard =
 export const landingCardImage =
   'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'
 
-export const landingCardContents =
-  'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'
+// export const landingCardContents =
+//   'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'
 
 export const landingPageButton =
   'flex justify-center align-center self-center items-center text-2xl font-semibold px-[5rem] py-[1.5rem]  mx-auto border border-amber-400 rounded-lg bg-amber-100 text-amber-800 shadow hover:bg-amber-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700'
-// 'flex align-center reletive h-1/3 w-full md:h-full md:w-1/2'

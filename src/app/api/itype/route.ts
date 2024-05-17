@@ -1,3 +1,4 @@
+import { getAuthSession } from '@/utils/auth'
 import { prisma } from '@/utils/connect'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -14,29 +15,76 @@ export const GET = async () => {
   }
 }
 
-export const getData = async () => {
-  const test = await fetch('http://localhost:3000/api/itype', {
-    cache: 'no-store',
-  })
-    .then((response) => response.json())
-    .then((ibudgets) => {
-      // console.log(ibudgets)
-      return ibudgets
-    })
-  // console.log(test)
-  return test
+export const POST = async (req: NextRequest) => {
+  const session = await getAuthSession()
+  if (session) {
+    try {
+      const body = await req.json()
+
+      const IncomeBudget = await prisma.incomeBudget.create({
+        data: body,
+      })
+      return new NextResponse(JSON.stringify(body), { status: 201 })
+    } catch (err) {
+      return new NextResponse(
+        JSON.stringify({ message: 'Something went wrong' }),
+        { status: 500 }
+      )
+    }
+  }
 }
 
-// export const createBudget = ({ name, amount }) => {
-//   const newItem = {
-//     id: crypto.randomUUID(),
-//     name: name,
-//     createdAt: Date.now(),
-//     amount: +amount,
-//   }
-//   const existingBudgets = fetchData('budgets') ?? []
-//   return localStorage.setItem(
-//     'budgets',
-//     JSON.stringify([...existingBudgets, newItem])
-//   )
-// }
+export const PUT = async (
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { id } = params
+  const session = await getAuthSession()
+  if (session) {
+    try {
+      const body = await req.json()
+
+      await prisma.incomeBudget.update({
+        where: {
+          ib_id: id,
+        },
+        data: body,
+      })
+      return new NextResponse(JSON.stringify({ message: 'Updated' }), {
+        status: 200,
+      })
+    } catch (err) {
+      console.log(err)
+      return new NextResponse(
+        JSON.stringify({ message: 'Something went wrong' }),
+        { status: 500 }
+      )
+    }
+  }
+}
+
+export const DELETE = async (
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) => {
+  const { id } = params
+  const session = await getAuthSession()
+  if (session) {
+    try {
+      await prisma.incomeBudget.delete({
+        where: {
+          ib_id: id,
+        },
+      })
+      return new NextResponse(JSON.stringify({ message: 'Deleted' }), {
+        status: 200,
+      })
+    } catch (err) {
+      console.log(err)
+      return new NextResponse(
+        JSON.stringify({ message: 'Something went wrong' }),
+        { status: 500 }
+      )
+    }
+  }
+}
