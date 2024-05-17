@@ -1,13 +1,15 @@
 import React from 'react'
+import { toast } from 'react-toastify'
 import IncomeType from './income-type/page'
 import IncomeItem from './income-item/page'
 import IncomeDetails from './income-details/page'
 import IncomeTable from './income-table/page'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { IBudget } from '@/types/types'
+import { createIncomeBudget } from '@/utils/incomeHelper'
 
 //QUERY
-export function useIncomeBudget() {
+export function UseIncomeBudget() {
   return useQuery({
     queryKey: ['incomeBudget'],
     queryFn: () =>
@@ -16,7 +18,7 @@ export function useIncomeBudget() {
 }
 
 //MUTATION FOR CREATE
-export function useCreateIncome() {
+export function UseCreateIncome() {
   const QueryClient = useQueryClient()
   return useMutation({
     mutationFn: (newBudget: IBudget) => {
@@ -40,7 +42,7 @@ export function useCreateIncome() {
   })
 }
 
-export function useUpdateIncome() {
+export function UseUpdateIncome() {
   const QueryClient = useQueryClient()
   return useMutation({
     mutationFn: ({ id, newBudget }: { id: string; newBudget: IBudget }) => {
@@ -64,7 +66,7 @@ export function useUpdateIncome() {
   })
 }
 
-export function useDeleteIncome() {
+export function UseDeleteIncome() {
   const queryClient = useQueryClient()
 
   return useMutation({
@@ -84,6 +86,24 @@ export function useDeleteIncome() {
       }
     },
   })
+}
+
+export async function incomeDashboardAction() {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { data } = UseIncomeBudget()
+  const { _action, ...values } = Object.fromEntries(data)
+
+  if (_action === 'createIncomeBudget') {
+    try {
+      createIncomeBudget({
+        name: values.newBudget,
+        amount: values.newBudgetAmount,
+      })
+      return toast.success('Budget created!')
+    } catch (error) {
+      throw new Error('There was a problem creating your budget.')
+    }
+  }
 }
 
 const Incomes = () => {

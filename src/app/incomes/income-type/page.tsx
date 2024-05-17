@@ -14,13 +14,13 @@ import {
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
 import { useSession } from 'next-auth/react'
-import { useCreateIncome, useIncomeBudget } from '../page'
+import { UseCreateIncome, UseIncomeBudget } from '../page'
 import { IBudget } from '@/types/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 const IncomeType = () => {
-  const { data, error, isLoading } = useIncomeBudget()
-  const createBudgetMutation = useCreateIncome() //step 1
+  const { data, error, isLoading } = UseIncomeBudget()
+  const createBudgetMutation = UseCreateIncome() //step 1
 
   const { data: session, status } = useSession()
 
