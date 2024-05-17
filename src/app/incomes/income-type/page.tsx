@@ -15,7 +15,6 @@ import {
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
 import { getData } from '@/app/api/itype/route'
-// import { createIncomeBudget } from '@/utils/incomeHelper'
 
 const IncomeType = () => {
   const [incomeBudgetType, setIncomeBudgetType] = useState([])
@@ -36,19 +35,9 @@ const IncomeType = () => {
 
   const ibTypeData = incomeBudgetType
   const { _action, ...values } = Object.fromEntries(ibTypeData)
-  console.log('🚀 ibTypeData:--', ibTypeData)
+  // console.log('🚀 ibTypeData:--', ibTypeData)
 
   if (_action === 'createIncomeBudget') {
-    //=== dispatch
-    // try {
-    //   createBudget({
-    //     ib_name: values.newBudget,
-    //     ib_amount: values.newBudgetAmount,
-    //   })
-    //   return toast.success('Budget created!')
-    // } catch (error) {
-    //   throw new Error('There was a problem creating your budget.')
-    // }
   }
 
   return (
@@ -57,7 +46,6 @@ const IncomeType = () => {
         <div className={budgetContainer}>
           <div className={budgetCard}>
             <h2 className={cardTypeTitle}>Income: Type & Goal</h2>
-            {/* <span className={cardTitle}>Type & Goal</span> */}
 
             <div className={cardFormWrap}>
               <form method='POST' className={cardForm}>
@@ -67,15 +55,14 @@ const IncomeType = () => {
                   </label>
                   <input
                     type='text'
-                    name='newIncomeBudgetName'
-                    id='newIncomeBudgetName'
+                    name='IncomeBudgetName'
+                    id='IncomeBudgetName'
                     placeholder='e.g.Salary'
                     className={cardInput}
                     required
                   />
                 </div>
-                {/* </form>
-              <form className={cardForm}> */}
+
                 <div className={cardFormField}>
                   <label className={cardLabel} htmlFor='newBudgetAmount'>
                     Amount
@@ -83,8 +70,8 @@ const IncomeType = () => {
                   <input
                     type='number'
                     step='0.01'
-                    name='newIncomeBudgetAmount'
-                    id='newIncomeBudgetAmount'
+                    name='IncomeBudgetAmount'
+                    id='IncomeBudgetAmount'
                     placeholder='e.g., $3500.00'
                     className={cardInput}
                     inputMode='decimal'
