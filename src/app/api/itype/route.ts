@@ -16,20 +16,21 @@ export const GET = async () => {
 }
 
 export const POST = async (req: NextRequest) => {
-  // const session = await getAuthSession()
-  // if (session) {
-  try {
-    const body = await req.json()
+  const session = await getAuthSession()
+  if (session) {
+    try {
+      const body = await req.json()
 
-    const IncomeBudget = await prisma.incomeBudget.create({
-      data: body,
-    })
-    return new NextResponse(JSON.stringify(body), { status: 201 })
-  } catch (err) {
-    return new NextResponse(
-      JSON.stringify({ message: 'Something went wrong' }),
-      { status: 500 }
-    )
+      const IncomeBudget = await prisma.incomeBudget.create({
+        data: body,
+      })
+      return new NextResponse(JSON.stringify(body), { status: 201 })
+    } catch (err) {
+      return new NextResponse(
+        JSON.stringify({ message: 'Something went wrong' }),
+        { status: 500 }
+      )
+    }
   }
 }
 
