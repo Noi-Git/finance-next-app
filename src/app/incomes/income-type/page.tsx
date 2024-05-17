@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { useFetcher } from 'react-router-dom'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -19,6 +20,7 @@ import { IBudget } from '@/types/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 const IncomeType = () => {
+  const fetcher = useFetcher()
   const { data, error, isLoading } = UseIncomeBudget()
   const createBudgetMutation = UseCreateIncome() //step 1
 
@@ -41,7 +43,7 @@ const IncomeType = () => {
             <h2 className={cardTypeTitle}>Income: Type & Goal</h2>
 
             <div className={cardFormWrap}>
-              <form
+              <fetcher.Form
                 className={cardForm}
                 onSubmit={handleSubmit(handleInputChangeSubmit)}
               >
@@ -87,7 +89,7 @@ const IncomeType = () => {
                 >
                   Add Income Goal
                 </button>
-              </form>
+              </fetcher.Form>
             </div>
           </div>
         </div>
