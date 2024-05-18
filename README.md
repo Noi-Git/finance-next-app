@@ -60,7 +60,14 @@ GOOGLE_SECRET=<your-google-secrate>
 - Postgresql
 - Prisma ORM
 
-![Alt database diagram page](./assests/database-design.png)
-![Alt database diagram page](./assests/login.png)
-![Alt database diagram page](./assests/income-goal.png)
-![Alt database diagram page](./assests/income-main.png)
+![Alt database diagram page](assets/database-design.png)
+
+### Login Page
+
+![Alt database diagram page](assets/login.png)
+
+### Landing Page
+
+![Alt database diagram page](assets/landing-page.png)
+![Alt database diagram page](assets/income-goal.png)
+![Alt database diagram page](assets/income-main.png)
