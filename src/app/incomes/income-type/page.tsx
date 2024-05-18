@@ -14,20 +14,26 @@ import {
 } from '@/components/styles/form-style'
 import { incomeButton } from '@/components/styles/buttons'
 import { useSession } from 'next-auth/react'
-import { useCreateIncome, useIncomeBudget } from '../page'
+import {
+  UseCreateIncome,
+  UseIncomeBudget,
+} from '@/app/incomes/income-fetch/page'
 import { IBudget } from '@/types/types'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
 const IncomeType = () => {
-  const { data, error, isLoading } = useIncomeBudget()
-  const createBudgetMutation = useCreateIncome() //step 1
+  const { data, error, isLoading } = UseIncomeBudget()
+  console.log(data)
+  const createBudgetMutation = UseCreateIncome() //step 1
 
   const { data: session, status } = useSession()
 
-  const { register, handleSubmit } = useForm<IBudget>() //step 3
+  const { register, handleSubmit, reset } = useForm<IBudget>() //step 3
+
   const handleInputChangeSubmit: SubmitHandler<IBudget> = (newBudget) => {
     //step 2
     createBudgetMutation.mutate(newBudget)
+    reset()
   }
 
   if (error) return <p>Something went wrong...</p>
@@ -72,16 +78,23 @@ const IncomeType = () => {
                     required
                   />
                 </div>
+                <input
+                  type='hidden'
+                  name='_action'
+                  value='createIncomeBudget'
+                />
+                <button
+                  type='submit'
+                  disabled={createBudgetMutation.isPending}
+                  value={
+                    createBudgetMutation.isPending ? 'Creating...' : 'Created'
+                  }
+                  className={incomeButton}
+                >
+                  Add Income Goal
+                </button>
               </form>
             </div>
-            <button
-              type='submit'
-              disabled={createBudgetMutation.isPending}
-              value={createBudgetMutation.isPending ? 'Creating...' : 'Created'}
-              className={incomeButton}
-            >
-              Add Income Goal
-            </button>
           </div>
         </div>
       </div>

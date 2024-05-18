@@ -21,6 +21,13 @@ export const IncomeItem = {
   i_amount: Number,
 }
 
+export type IItem = {
+  i_id?: String
+  i_name: String
+  i_amount: number
+  createdAt?: Date
+}
+
 interface IncomeBudgetInput {
   incomeType: string
   incomeBudgetAmount: string

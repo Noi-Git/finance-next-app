@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { useSession } from 'next-auth/react'
 import { homeCard } from '@/components/styles/home-style'
 import {
   budgetCard,
@@ -11,105 +13,114 @@ import {
   itemLabel,
   itemSelect,
 } from '@/components/styles/form-style'
-import { getData } from '@/app/api/itype/route'
 import { toast } from 'react-toastify'
+import {
+  UseCreateIncomeItem,
+  UseIncomeBudget,
+  UseIncomeItem,
+} from '../income-fetch/page'
+import { IItem } from '@/types/types'
+import { incomeButton } from '@/components/styles/buttons'
 
 const IncomeItem = () => {
-  const [incomeItem, setIncomeItem] = useState([])
+  const { data, error, isLoading } = UseIncomeBudget()
+  console.log(data)
+  const createItemMutation = UseCreateIncomeItem() //step 1
 
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        setIncomeItem(data)
-      })
-      .catch((error) => {
-        console.error('Error fetching data', error)
-      })
-  }, [])
+  const { data: session, status } = useSession()
 
-  if (incomeItem === null) {
-    return <div>Loading...</div>
+  const { register, handleSubmit, reset } = useForm<IItem>() //step 3
+
+  const handleInputChangeSubmit: SubmitHandler<IItem> = (newItem) => {
+    //step 2
+    createItemMutation.mutate(newItem)
+    reset()
   }
 
-  const iData = incomeItem
-  const { _action, ...values } = Object.fromEntries(iData)
-  console.log('🚀 ibTypeData:--', iData)
-
-  if (_action === 'createIncomeItem') {
-    // === dispatch to database
-    // try {
-    //   createIncomeItem({
-    //     name: values.newExpense,
-    //     amount: values.newExpenseAmount,
-    //     budgetId: values.newExpenseBudget,
-    //   })
-    //   // console.log('values.newExpense', values)
-    //   return toast.success(`Expense ${values.newExpense} created!`)
-    // } catch (error) {
-    //   throw new Error('There was a problem creating your expense.')
-    // }
-  }
+  if (error) return <p>Something went wrong...</p>
+  if (isLoading || status === 'loading') return <p>Loading...</p>
 
   return (
     <>
       <div className={homeCard}>
         <div className={budgetContainer}>
           <div className={budgetCard}>
-            <h2 className={cardTypeTitle}>Add New Income</h2>
+            <h2 className={cardTypeTitle}>
+              Add New Income{' '}
+              {/* <span>
+                {data.length === 1 &&
+                  `${data.map((iname: any) => iname.ib_name)}`}
+              </span> */}
+            </h2>
 
             <div className={itemFormWrap}>
-              <form method='POST' className={itemForm}>
+              <form
+                className={itemForm}
+                onSubmit={handleSubmit(handleInputChangeSubmit)}
+              >
                 <div className={itemFormField}>
                   <label className={itemLabel}>Income Name</label>
                   <input
                     type='text'
-                    name='newExpense'
+                    {...register('i_name')}
+                    // name='newExpense'
                     id='newExpense'
                     placeholder='e.g., gradening'
                     className={itemInput}
                     required
                   />
                 </div>
-              </form>
-              <form className={itemForm}>
+
                 <div className={itemFormField}>
                   <label className={itemLabel}>Amount</label>
                   <input
                     type='number'
                     step='0.01'
                     inputMode='decimal'
-                    name='newExpenseAmount'
+                    {...register('i_amount')}
+                    // name='newExpenseAmount'
                     id='newExpenseAmount'
                     className={itemInput}
                     placeholder='e.g. 50'
                     required
                   />
                 </div>
-              </form>
-              <form className={itemForm}>
+
                 <div className={itemFormField}>
                   <label className={itemLabel}>Income Type</label>
                   <select
-                    name='newExpenseBudget'
+                    // name='newExpenseBudget'
                     id='newExpenseBudget'
+                    // {...register('ib_name')}
                     className={itemInput}
                     required
                   >
-                    {/* {incomeBudget.map((budget) => {
+                    {data.map((item: any) => {
                       return (
-                        <option key={budget.id} value={budget.id}>
-                          {budget.name}
+                        <option
+                          key={item.ib_id}
+                          value={item.ib_id}
+                          {...register('i_name')}
+                        >
+                          {item.ib_name}
                         </option>
                       )
-                    })} */}
+                    })}
                   </select>
                 </div>
+                <input type='hidden' name='_action' value='creteIncomeItem' />
+                <button
+                  type='submit'
+                  disabled={createItemMutation.isPending}
+                  value={
+                    createItemMutation.isPending ? 'Creating...' : 'Created'
+                  }
+                  className={incomeButton}
+                >
+                  <span>Add Income</span>
+                </button>
               </form>
             </div>
-            <input type='hidden' name='_action' value='creteIncomeItem' />
-            <button type='submit' className='btn btn--dark'>
-              <span>Add Income</span>
-            </button>
           </div>
         </div>
       </div>

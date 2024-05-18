@@ -24,6 +24,9 @@ export const POST = async (req: NextRequest) => {
       const IncomeBudget = await prisma.incomeBudget.create({
         data: body,
       })
+      console.log(
+        'sucessful from post backend endpoint - add new bubget database'
+      )
       return new NextResponse(JSON.stringify(body), { status: 201 })
     } catch (err) {
       return new NextResponse(
